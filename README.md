@@ -9,12 +9,30 @@ can't prove yet.
 
 It runs on your machine. You bring one LLM API key: OpenAI, Anthropic or Google.
 
+<p align="center">
+  <img src="docs/screenshots/app-overview.png" alt="RAG Resume Builder: a tailored run with coverage score, evidence map and the one-page PDF preview" width="100%">
+</p>
+
+### A tailored resume for under 20 cents
+
+| | |
+|---|---|
+| **About $0.13 to $0.16 per job post** | Real runs with `gpt-5.4` cost **$0.127** and **$0.162**, including every LLM call. |
+| **$0 to re-run** | Same post, same prompts: answers come from the on-disk cache. |
+| **About 3 minutes** | From pasting the post to a printed one-page PDF. |
+| **Zero invented claims** | Every keyword and number on the page is checked against your own evidence. |
+| **No subscription** | MIT-licensed, runs locally, and you pay your LLM provider directly for what you use. |
+
+Paid resume-tailoring tools usually charge a monthly fee. Here, **50 tailored applications cost about $7.50**,
+and the cost panel shows exactly where every cent went.
+
 ---
 
 ## Contents
 
 - [Why this exists](#why-this-exists)
 - [Features](#features)
+- [Screenshots](#screenshots)
 - [Quick start](#quick-start)
 - [Using the app](#using-the-app)
 - [Your profile](#your-profile)
@@ -56,6 +74,55 @@ This app takes the opposite approach:
 | **Auto company and role** | Leave them blank and they're read from the post. When the LLM isn't sure, you pick from chips. |
 | **Any one LLM key** | OpenAI, Anthropic or Google. Extra keys become automatic fallbacks. |
 | **Cost tracking** | Every LLM call is priced with LiteLLM and recorded per job post. Repeat runs hit an exact-match cache and cost $0. |
+
+## Screenshots
+
+### The agent at work
+
+Each LangGraph node lights up as it runs, with the live log beside it. The planner reports which
+requirements have no specific evidence left, before any writing starts.
+
+<p align="center">
+  <img src="docs/screenshots/pipeline-running.png" alt="Pipeline view mid-run: prepare and plan done, experience running, stdout showing planner decisions" width="80%">
+</p>
+
+<table>
+  <tr>
+    <td width="45%" valign="top">
+      <img src="docs/screenshots/pipeline-done.png" alt="Finished pipeline with per-node timings">
+    </td>
+    <td valign="top">
+      <b>Every step is timed.</b><br><br>
+      Writing the experience section takes the longest (about 97 s here). Education, skills and certifications are
+      assembled without LLM calls, and research came straight from the cache, so all four finish in 0 s. The last step prints the
+      one-page PDF.
+    </td>
+  </tr>
+</table>
+
+### The evidence map: honest about gaps
+
+Every requirement line from the post gets a status. Here, **R11 and R12 are PROVEN** by bullets on the page.
+Soft skills and degree requirements are **ROUTED** to the right section. Requirements with no matching
+evidence stay **GAP** instead of being made up. That's why coverage reads 39% while recall (how much of the
+*available* evidence was used) is 92%.
+
+<p align="center">
+  <img src="docs/screenshots/evidence-map.png" alt="Evidence map listing requirements R1 to R12 with PROVEN, GAP and ROUTED labels and retrieval distances" width="70%">
+</p>
+
+<table>
+  <tr>
+    <td valign="top">
+      <b>Know what every resume cost.</b><br><br>
+      The cost panel shows spend per job post, per stage and per call, with tokens and cache savings.
+      This build made 8 calls, one of which hit the cache, for a total of <b>$0.162</b>.
+    </td>
+    <td width="40%" valign="top">
+      <img src="docs/screenshots/cost-panel.png" alt="Cost panel: $0.289 across 2 builds, per-stage and per-call breakdown">
+    </td>
+  </tr>
+</table>
 
 ## Quick start
 
