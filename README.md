@@ -70,7 +70,7 @@ This app takes the opposite approach:
 ### 1. Install
 
 ```bash
-git clone <this-repo-url> rag-resume-builder
+git clone https://github.com/devendrasaim/rag-resume-builder.git
 cd rag-resume-builder
 
 # backend
