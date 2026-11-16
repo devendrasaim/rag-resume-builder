@@ -1,0 +1,95 @@
+{
+  "personal": {
+    "full_name": "Ines Valderrama-Ochoa",
+    "email": "ines.valderrama@example.com",
+    "phone": "+1 (312) 847-1928",
+    "location": "Chicago, IL",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/ines-valderrama-example",
+      "github": "https://github.com/ines-valderrama-example",
+      "portfolio": "",
+      "other": []
+    }
+  },
+  "summary": "Software engineer who builds LLM features and the data pipelines behind them. Ships Python services, React front ends, and evaluation harnesses that catch regressions before users do.",
+  "skills": {
+    "languages": ["Python", "TypeScript", "SQL", "Go"],
+    "ai_ml": ["PyTorch", "scikit-learn", "LLM Integration", "RAG Architecture", "Embeddings", "Prompt Engineering"],
+    "web": ["React", "FastAPI", "Node.js", "Tailwind CSS"],
+    "cloud_devops": ["AWS (Lambda, S3, ECS)", "Docker", "GitHub Actions", "Terraform"],
+    "databases": ["PostgreSQL", "Redis", "pgvector"]
+  },
+  "work_experience": [
+    {
+      "company": "Larkspur Logistics",
+      "title": "Software Engineer, Applied AI",
+      "location": "Chicago, IL",
+      "start": "Mar 2024",
+      "end": "Present",
+      "description": "Larkspur runs freight brokerage software; the applied AI team automates document intake for 300+ carrier partners.",
+      "highlights": [
+        "Built a FastAPI service that extracts fields from bills of lading with GPT-4o and validates them against carrier records, cutting manual data entry by 62%.",
+        "Designed a retrieval pipeline over 1.4M shipment documents using pgvector and hybrid BM25 search, raising answer accuracy on an internal eval set from 71% to 88%.",
+        "Wrote an evaluation harness with 420 labeled cases that runs in GitHub Actions on every prompt change and blocks merges that drop accuracy.",
+        "Moved three batch jobs from cron on EC2 to ECS scheduled tasks with Terraform, removing 9 hours of monthly on-call toil."
+      ],
+      "tech": ["Python", "FastAPI", "PostgreSQL", "pgvector", "OpenAI API", "Docker", "Terraform", "AWS"]
+    },
+    {
+      "company": "Brightwater Health",
+      "title": "Software Engineer",
+      "location": "Remote",
+      "start": "Jul 2021",
+      "end": "Feb 2024",
+      "description": "Brightwater builds scheduling and intake software for outpatient clinics.",
+      "highlights": [
+        "Rebuilt the patient intake form in React and TypeScript with field-level validation, lowering incomplete submissions from 18% to 6%.",
+        "Built a Python ETL that loads 2.3M appointment records nightly into PostgreSQL for the analytics team, with row-count and schema checks.",
+        "Trained a scikit-learn no-show model on 3 years of appointment history that clinics use to schedule reminder calls."
+      ],
+      "tech": ["React", "TypeScript", "Python", "PostgreSQL", "scikit-learn", "Redis"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Quillmark: Lecture Notes Search",
+      "description": "A search app over recorded lecture transcripts that answers questions with timestamps back to the video.",
+      "highlights": [
+        "Chunked 600+ hours of transcripts by speaker turn and embedded them into a local vector index.",
+        "Added reranking with a cross-encoder, which improved top-3 hit rate from 64% to 81% on 150 hand-written questions."
+      ],
+      "tech": ["Python", "PyTorch", "sentence-transformers", "FastAPI", "React"],
+      "live": "",
+      "repo": "https://github.com/ines-valderrama-example/quillmark"
+    },
+    {
+      "name": "Tidepool Budget Bot",
+      "description": "A Telegram bot that categorizes bank CSV exports and sends a weekly spending summary.",
+      "highlights": [
+        "Parses exports from 4 banks into one schema and categorizes transactions with rules plus an LLM fallback."
+      ],
+      "tech": ["Go", "SQLite", "OpenAI API"],
+      "live": "",
+      "repo": "https://github.com/ines-valderrama-example/tidepool"
+    }
+  ],
+  "research_experience": [],
+  "education": [
+    {
+      "institution": "University of Illinois Chicago",
+      "location": "Chicago, IL",
+      "degree": "Bachelor of Science",
+      "field": "Computer Science",
+      "gpa": "3.6/4.0",
+      "start": "Aug 2017",
+      "end": "May 2021"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Developer - Associate",
+      "issuer": "Amazon Web Services",
+      "date": "Oct 2023"
+    }
+  ]
+}

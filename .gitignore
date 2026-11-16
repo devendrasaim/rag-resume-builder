@@ -1,0 +1,36 @@
+# ---- secrets: API keys never leave your machine ----
+.env
+.env.*
+*.env
+!.env.example
+!backend/.env.example
+
+# ---- your data: uploaded resume, profile, vector index, caches, generated resumes ----
+backend/data/
+data/
+chroma_db/
+*.sqlite3
+# resumes / job posts you may drop in the repo folder while testing
+/*.pdf
+/*.txt
+/*.docx
+profile.json
+
+# ---- build + deps ----
+frontend/node_modules/
+node_modules/
+frontend/dist/
+dist/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# ---- editor / OS ----
+.vscode/
+.idea/
+.claude/
+.DS_Store
+Thumbs.db
+*.log

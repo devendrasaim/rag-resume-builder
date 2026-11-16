@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  --color-canvas: #f6f6f4;
+  --color-ink: #1c1c1f;
+  --color-accent: #2f7d5b;
+  --color-accent-soft: #e4f0ea;
+  --color-well: #ececea;            /* the PDF tray */
+  --color-night: #18181b;           /* surfaces that stay dark in both themes (terminal, save bar) */
+  --color-night-fg: #e4e4e7;
+  --color-night-dim: #8b8b94;
+  --color-night-faint: #5b5b63;
+  --color-shimmer-a: #ececea;
+  --color-shimmer-b: #f7f7f5;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark theme: remap the tokens the UI already uses, so components need no dark: classes.
+   The zinc scale flips (borders stay subtle, text stays readable), white becomes the raised surface. */
+:root.dark {
+  color-scheme: dark;
+  --color-canvas: #111113;
+  --color-ink: #ececf0;
+  --color-white: #1a1a1e;
+  --color-accent: #52b98d;
+  --color-accent-soft: #163428;
+  --color-well: #0c0c0e;
+  --color-shimmer-a: #1f1f24;
+  --color-shimmer-b: #2a2a30;
+  --color-zinc-50: #1d1d21;
+  --color-zinc-100: #232328;
+  --color-zinc-200: #2c2c32;
+  --color-zinc-300: #3b3b43;
+  --color-zinc-400: #7c7c86;
+  --color-zinc-500: #9b9ba4;
+  --color-zinc-600: #b5b5bd;
+  --color-zinc-700: #d0d0d7;
+  --color-zinc-800: #e2e2e7;
+  --color-amber-50: #33270f;
+  --color-amber-700: #efba62;
+  --color-rose-50: #35181d;
+  --color-rose-200: #5a2830;
+  --color-rose-600: #f28d99;
+  --color-rose-700: #f28d99;
+}
+:root { color-scheme: light; }
+html.theme-fade, html.theme-fade * {
+  transition: background-color .35s var(--ease-out-expo), border-color .35s var(--ease-out-expo), color .35s var(--ease-out-expo) !important;
+}
+
+html, body, #root { min-height: 100dvh; }
+body {
+  @apply bg-canvas text-ink font-sans antialiased;
+  font-feature-settings: "ss01", "tnum";
+}
+
+/* grain on a fixed, non-scrolling layer only */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.shimmer {
+  background: linear-gradient(100deg, var(--color-shimmer-a) 30%, var(--color-shimmer-b) 50%, var(--color-shimmer-a) 70%);
+  background-size: 300% 100%;
+  animation: shimmer 1.6s var(--ease-out-expo) infinite;
+}
+@keyframes shimmer { from { background-position: 100% 0; } to { background-position: -50% 0; } }
+
+.stagger > * {
+  opacity: 0;
+  animation: rise 0.55s var(--ease-out-expo) forwards;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.scroll-thin { scrollbar-width: thin; scrollbar-color: #d4d4d8 transparent; }
+
+/* react-pdf page: paper look */
+.react-pdf__Page { box-shadow: 0 1px 0 rgba(28,28,31,.04), 0 24px 48px -24px rgba(0,0,0,.35); border-radius: 4px; overflow: hidden; }
+.react-pdf__Page__canvas { display: block; }
+
+@layer components {
+  .input {
+    @apply w-full rounded-xl border border-zinc-200 bg-white px-3.5 py-2.5 text-sm text-ink outline-none transition
+      placeholder:text-zinc-400 hover:border-zinc-300 focus:border-accent/50 focus:ring-4 focus:ring-accent/10;
+  }
+}

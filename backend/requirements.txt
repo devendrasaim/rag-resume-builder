@@ -1,0 +1,16 @@
+# RAG Resume Builder backend (Python 3.11+)
+fastapi
+uvicorn
+python-multipart            # file uploads
+langgraph
+langchain-core
+langchain-google-genai      # Gemini embeddings
+langchain-openai            # OpenAI embeddings
+chromadb
+langchain-chroma
+litellm                     # writer LLM (provider-agnostic)
+diskcache                   # exact-match LLM cache
+python-dotenv
+numpy
+pydantic
+pypdf                       # PDF text extraction, page count + page fill

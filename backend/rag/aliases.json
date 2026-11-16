@@ -1,0 +1,99 @@
+{
+  "_rule": "Key = a term as it appears in a profile/skills list. Values = JD spellings that mean the SAME thing. Used for search expansion and to accept the JD's spelling in a bullet. Edit by hand; if in doubt, leave it out.",
+  "PostgreSQL": [
+    "Postgres"
+  ],
+  "Scikit-learn": [
+    "sklearn",
+    "scikit learn"
+  ],
+  "JavaScript": [
+    "JS"
+  ],
+  "React": [
+    "React.js",
+    "ReactJS"
+  ],
+  "Next.js": [
+    "NextJS"
+  ],
+  "Node.js": [
+    "NodeJS"
+  ],
+  "Linux/Bash": [
+    "Linux",
+    "Bash",
+    "shell scripting"
+  ],
+  "AWS (EC2, S3, IAM)": [
+    "Amazon Web Services",
+    "EC2",
+    "S3"
+  ],
+  "Google Cloud Platform (Vertex AI, Gemini API)": [
+    "GCP",
+    "Google Cloud",
+    "Vertex AI"
+  ],
+  "CI/CD": [
+    "continuous integration",
+    "continuous delivery"
+  ],
+  "Docker": [
+    "containerization",
+    "containerized"
+  ],
+  "LLM Integration": [
+    "LLM",
+    "LLMs",
+    "large language model",
+    "large language models"
+  ],
+  "RAG Architecture": [
+    "RAG",
+    "retrieval-augmented generation",
+    "retrieval augmented generation"
+  ],
+  "Vector Databases": [
+    "vector database",
+    "vector store",
+    "vector DB"
+  ],
+  "Embeddings": [
+    "embedding"
+  ],
+  "Multi-Agent Systems": [
+    "multi-agent",
+    "multi agent"
+  ],
+  "Agentic Workflow Design": [
+    "agentic workflows",
+    "AI agents",
+    "agentic AI"
+  ],
+  "Prompt Engineering": [
+    "prompting",
+    "prompt design"
+  ],
+  "OpenAI API": [
+    "OpenAI",
+    "GPT"
+  ],
+  "Gemini API (2.5 Pro / 2.5 Flash / 1.5 Flash)": [
+    "Gemini"
+  ],
+  "Model Context Protocol (MCP)": [
+    "MCP"
+  ],
+  "ETL / data pipelines": [
+    "ETL",
+    "data pipelines",
+    "data pipeline"
+  ],
+  "Document extraction and preprocessing": [
+    "document extraction"
+  ],
+  "Pandas": [
+    "pandas"
+  ]
+}
